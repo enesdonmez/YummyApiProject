@@ -1,6 +1,6 @@
 ﻿namespace Yummy.Api.Entitites
 {
-    public class Rezervation
+    public class Reservation
     {
         public int ReservationId { get; set; }
         public string NameSurname { get; set; } = default!;

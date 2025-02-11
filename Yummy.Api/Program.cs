@@ -1,4 +1,5 @@
 using Scalar.AspNetCore;
+using Yummy.Api.Context;
 
 namespace Yummy.Api
 {
@@ -8,9 +9,9 @@ namespace Yummy.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
             builder.Services.AddControllers();
             builder.Services.AddOpenApi();
+            builder.Services.AddDbContext<ApiContext>();
 
             var app = builder.Build();
 
