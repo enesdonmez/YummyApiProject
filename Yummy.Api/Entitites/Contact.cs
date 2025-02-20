@@ -1,6 +1,6 @@
 ﻿namespace Yummy.Api.Entitites
 {
-    public class Contact
+    public class Contact 
     {
         public int ContactId { get; set; }
         public string MapLocation { get; set; } = default!;
