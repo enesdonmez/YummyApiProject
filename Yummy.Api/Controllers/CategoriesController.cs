@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Yummy.Api.Context;
+using Yummy.Api.Dtos.CategoryDtos;
 using Yummy.Api.Entitites;
 
 namespace Yummy.Api.Controllers
@@ -10,10 +11,12 @@ namespace Yummy.Api.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ApiContext _context;
+        private readonly IMapper _mapper;
 
-        public CategoriesController(ApiContext context)
+        public CategoriesController(ApiContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -24,9 +27,10 @@ namespace Yummy.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCategory(Category category)
+        public IActionResult CreateCategory(CreateCategoryDto createCategoryDto)
         {
-            _context.Categories.Add(category);
+            var value = _mapper.Map<Category>(createCategoryDto);
+            _context.Categories.Add(value);
             _context.SaveChanges();
             return Ok("Ekleme başarılı.");
         }
@@ -35,21 +39,30 @@ namespace Yummy.Api.Controllers
         public IActionResult DeleteCategory(int id)
         {
             var value = _context.Categories.Find(id)!;
+            if (value == null)
+            {
+                return NotFound("Kategori bulunamadı.");
+            }
             _context.Categories.Remove(value);
             _context.SaveChanges();
             return Ok("Kategori silme işlemi başarılı");
         }
 
-        [HttpGet("GetCategory")]
+        [HttpGet("{id}")]
         public IActionResult GetCategory(int id)
         {
-            var value = _context.Categories.Find(id);
+            var value = _context.Categories.Find(id)!;
+            if (value == null)
+            {
+                return NotFound("Kategori bulunamadı.");
+            }
             return Ok(value);
         }
 
         [HttpPut]
-        public IActionResult UpdateCategory(Category category)
+        public IActionResult UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
+            var category = _mapper.Map<Category>(updateCategoryDto);
             _context.Categories.Update(category);
             _context.SaveChanges();
             return Ok("Kategori güncelleme işlemi başarılı");

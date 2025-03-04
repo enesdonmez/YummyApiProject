@@ -40,15 +40,24 @@ namespace Yummy.Api.Controllers
         public IActionResult DeleteContact(int id)
         {
             var value = _context.Contacts.Find(id)!;
+            if (value == null)
+            {
+                return NotFound("İletişim bulunamadı.");
+            }
             _context.Contacts.Remove(value);
             _context.SaveChanges();
             return Ok("İletişim silindi");
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult GetContact(int id)
         {
-            return Ok(_context.Contacts.Find(id));
+            var value = _context.Contacts.Find(id)!;
+            if (value == null)
+            {
+                return NotFound("İletişim bulunamadı.");
+            }
+            return Ok(value);
         }
 
         [HttpPut]
