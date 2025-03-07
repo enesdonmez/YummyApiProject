@@ -1,5 +1,8 @@
+using FluentValidation;
 using Scalar.AspNetCore;
 using Yummy.Api.Context;
+using Yummy.Api.Entitites;
+using Yummy.Api.ValidationRules;
 
 namespace Yummy.Api;
 
@@ -13,6 +16,7 @@ public class Program
         builder.Services.AddOpenApi();
         builder.Services.AddDbContext<ApiContext>();
         builder.Services.AddAutoMapper(typeof(Program).Assembly);
+        builder.Services.AddScoped<IValidator<MenuItem>, MenuItemValidator>();
 
         var app = builder.Build();
 
