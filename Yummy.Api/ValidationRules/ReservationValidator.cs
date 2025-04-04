@@ -3,9 +3,9 @@ using Yummy.Api.Entitites;
 
 namespace Yummy.Api.ValidationRules;
 
-public class RezervationValidator : AbstractValidator<Reservation>
+public class ReservationValidator : AbstractValidator<Reservation>
 {
-    public RezervationValidator()
+    public ReservationValidator()
     {
         RuleFor(x => x.Email)
             .NotEmpty()
