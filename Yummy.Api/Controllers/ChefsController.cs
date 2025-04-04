@@ -1,8 +1,9 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Yummy.Api.Context;
 using Yummy.Api.Dtos.ChefDtos;
 using Yummy.Api.Entitites;
+using AutoMapper;
+using FluentValidation;
 
 namespace Yummy.Api.Controllers
 {
@@ -12,11 +13,13 @@ namespace Yummy.Api.Controllers
     {
         private readonly ApiContext _context;
         private readonly IMapper _mapper;
+        private readonly IValidator<Chef> _chefValidator;
 
-        public ChefsController(ApiContext context, IMapper mapper)
+        public ChefsController(ApiContext context, IMapper mapper, IValidator<Chef> chefValidator)
         {
             _context = context;
             _mapper = mapper;
+            _chefValidator = chefValidator;
         }
 
         [HttpGet]
@@ -30,6 +33,11 @@ namespace Yummy.Api.Controllers
         public IActionResult CreateChef(CreateChefDto createChefDto)
         {
             var value = _mapper.Map<Chef>(createChefDto);
+            var result = _chefValidator.Validate(value);
+            if (!result.IsValid)
+            {
+                return BadRequest(result.Errors.Select(x => x.ErrorMessage));
+            }
             _context.Chefs.Add(value);
             _context.SaveChanges();
             return Ok("Şef eklendi");
@@ -64,6 +72,11 @@ namespace Yummy.Api.Controllers
         public IActionResult UpdateChef(UpdateChefDto updateChefDto)
         {
             var chef = _mapper.Map<Chef>(updateChefDto);
+            var result = _chefValidator.Validate(chef);
+            if (!result.IsValid)
+            {
+                return BadRequest(result.Errors.Select(x => x.ErrorMessage));
+            }
             _context.Chefs.Update(chef);
             _context.SaveChanges();
             return Ok("Şef güncelleme işlemi başarılı");

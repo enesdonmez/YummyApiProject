@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Yummy.Api.Context;
 using Yummy.Api.Dtos.RezervationDtos;
@@ -12,11 +13,13 @@ namespace Yummy.Api.Controllers
     {
         private readonly ApiContext _context;
         private readonly IMapper _mapper;
+        private readonly IValidator<Reservation> _validator;
 
-        public RezervationsController(ApiContext context, IMapper mapper)
+        public RezervationsController(ApiContext context, IMapper mapper, IValidator<Reservation> validator)
         {
             _context = context;
             _mapper = mapper;
+            _validator = validator;
         }
 
         [HttpGet]
@@ -30,6 +33,11 @@ namespace Yummy.Api.Controllers
         public IActionResult CreateRezervation(CreateRezervationDto createRezervationDto)
         {
             var value = _mapper.Map<Reservation>(createRezervationDto);
+            var validationResult = _validator.Validate(value);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors.Select(x => x.ErrorMessage));
+            }
             _context.Reservations.Add(value);
             _context.SaveChanges();
             return StatusCode(201);
@@ -63,6 +71,11 @@ namespace Yummy.Api.Controllers
         public IActionResult UpdateRezervation(UpdateRezervationDto updateRezervationDto)
         {
             var value = _mapper.Map<Reservation>(updateRezervationDto);
+            var validationResult = _validator.Validate(value);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors.Select(x => x.ErrorMessage));
+            }
             _context.Reservations.Update(value);
             _context.SaveChanges();
             return Ok("Rezervasyon güncellendi");

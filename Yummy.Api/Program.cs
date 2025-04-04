@@ -17,6 +17,9 @@ public class Program
         builder.Services.AddDbContext<ApiContext>();
         builder.Services.AddAutoMapper(typeof(Program).Assembly);
         builder.Services.AddScoped<IValidator<MenuItem>, MenuItemValidator>();
+        builder.Services.AddScoped<IValidator<Chef>, ChefValidator>();
+        builder.Services.AddScoped<IValidator<Contact>, ContactValidator>();
+        builder.Services.AddScoped<IValidator<Reservation>, ReservationValidator>();
 
         var app = builder.Build();
 

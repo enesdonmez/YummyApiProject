@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Yummy.Api.Context;
 using Yummy.Api.Dtos.MenuItemDtos;
 using Yummy.Api.Entitites;
@@ -28,6 +29,13 @@ namespace Yummy.Api.Controllers
             var values = _context.MenuItems.ToList();
 
             return Ok(values);
+        }
+
+        [HttpGet]
+        public ActionResult MenuItemListWithCategory()
+        {
+            var value = _context.MenuItems.Include(x => x.Category).ToList();
+            return Ok(_mapper.Map<List<ResultMenuItemWithCategoryDto>>(value));
         }
 
         [HttpPost]

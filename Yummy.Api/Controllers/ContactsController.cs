@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Yummy.Api.Context;
 using Yummy.Api.Dtos.ContactDtos;
@@ -12,11 +13,13 @@ namespace Yummy.Api.Controllers
     {
         private readonly ApiContext _context;
         private readonly IMapper _mapper;
+        private readonly IValidator<Contact> _contactValidator;
 
-        public ContactsController(ApiContext context, IMapper mapper)
+        public ContactsController(ApiContext context, IMapper mapper, IValidator<Contact> contactValidator)
         {
             _context = context;
             _mapper = mapper;
+            _contactValidator = contactValidator;
         }
 
         [HttpGet]
@@ -30,6 +33,11 @@ namespace Yummy.Api.Controllers
         public IActionResult CreateContact(CreateContactDto contactDto)
         {
             Contact contact = _mapper.Map<Contact>(contactDto);
+            var result = _contactValidator.Validate(contact);
+            if (!result.IsValid)
+            {
+                return BadRequest(result.Errors.Select(x => x.ErrorMessage));
+            }
             _context.Contacts.Add(contact);
             _context.SaveChanges();
             return Ok("İletişim eklendi");
@@ -63,7 +71,12 @@ namespace Yummy.Api.Controllers
         [HttpPut]
         public IActionResult UpdateContact(UpdateContactDto contactDto)
         {
-             Contact contact = _mapper.Map<Contact>(contactDto);     
+            Contact contact = _mapper.Map<Contact>(contactDto);
+            var result = _contactValidator.Validate(contact);
+            if (!result.IsValid)
+            {
+                return BadRequest(result.Errors.Select(x => x.ErrorMessage));
+            }
             _context.Contacts.Update(contact);
             _context.SaveChanges();
             return Ok("güncelleme işlemi başarılı");
