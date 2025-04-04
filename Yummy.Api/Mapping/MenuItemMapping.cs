@@ -12,5 +12,8 @@ public class MenuItemMapping : Profile
         CreateMap<MenuItem, CreateMenuItemDto>().ReverseMap();
         CreateMap<MenuItem, GetByIdMenuItemDto>().ReverseMap();
         CreateMap<MenuItem, UpdateMenuItemDto>().ReverseMap();
+        CreateMap<MenuItem,ResultMenuItemWithCategoryDto>()
+            .ForMember(x => x.CategoryName, y => y.MapFrom(z => z.Category.CategoryName))
+            .ReverseMap();
     }
 }
