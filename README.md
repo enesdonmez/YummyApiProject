@@ -54,7 +54,3 @@ YummyApiProject/
 Bu proje **Enes Dönmez** tarafından geliştirilmiştir.  
 🔗 GitHub: https://github.com/enesdonmez
 
-📄 Lisans
------------
-📝 Bu proje MIT Lisansı ile lisanslanmıştır.  
-Ayrıntılar için `LICENSE` dosyasını inceleyebilirsiniz.
