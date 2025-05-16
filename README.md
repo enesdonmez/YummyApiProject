@@ -42,12 +42,12 @@ YummyApiProject/
 5️⃣ Projeyi çalıştırın ve aşağıdaki adrese gidin:  
    🌐 `https://localhost:5001`
 
-🖼️ Ekran Görüntüleri
+<!-- [🖼️ Ekran Görüntüleri
 ---------------------
 📌 Bu bölüme proje arayüzüne dair ekran görüntüleri ekleyebilirsiniz.  
 Örnek:
 ![Ana Sayfa](screenshots/homepage.png)  
-![Admin Paneli](screenshots/admin-panel.png)
+![Admin Paneli](screenshots/admin-panel.png)](url) -->
 
 👨‍💻 Geliştirici
 ------------------
