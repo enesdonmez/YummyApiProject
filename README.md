@@ -39,8 +39,7 @@ YummyApiProject/
 4️⃣ NuGet paketlerini geri yükleyin ve ardından:
    `Update-Database`
 
-5️⃣ Projeyi çalıştırın ve aşağıdaki adrese gidin:  
-   🌐 `https://localhost:5001`
+5️⃣ Projeyi çalıştırın
 
 <!-- [🖼️ Ekran Görüntüleri
 ---------------------
