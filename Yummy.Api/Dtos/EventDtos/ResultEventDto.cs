@@ -1,4 +1,4 @@
-﻿namespace Yummy.WebUI.Dtos.EventDtos
+﻿namespace Yummy.Api.Dtos.EventDtos
 {
     public class ResultEventDto
     {

@@ -1,6 +1,6 @@
-﻿namespace Yummy.WebUI.Dtos.EventDtos
+﻿namespace Yummy.Api.Dtos.EventDtos
 {
-    public class ResultEventDto
+    public class GetByIdEventDto
     {
         public int Id { get; set; }
         public string EventTitle { get; set; }
