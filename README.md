@@ -1,4 +1,4 @@
-🍽️ YummyApiProject
+🍽️ Yummy Api Project
 ====================
 
 YummyApiProject, restoranlar ve kullanıcılar için geliştirilen bir yemek sipariş ve menü yönetim platformudur.  
