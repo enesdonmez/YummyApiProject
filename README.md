@@ -1,7 +1,7 @@
 🍽️ Yummy Api Project
 ====================
 
-YummyApiProject, restoranlar ve kullanıcılar için geliştirilen bir yemek sipariş ve menü yönetim platformudur.  
+YummyApiProject, restoranlar ve kullanıcılar için geliştirilen bir rezervasyon , etkinlik ve menü yönetim platformudur.  
 🚀 ASP.NET Core Web API ve MVC mimarisiyle oluşturulmuş olup, modern bir kullanıcı arayüzü ve sağlam bir API yapısı sunar.
 
 ✨ Özellikler
