@@ -17,16 +17,16 @@ YummyApiProject, restoranlar ve kullanıcılar için geliştirilen bir rezervasy
 🔧 Backend: ASP.NET Core 6, Entity Framework Core, MSSQL  
 🎨 Frontend: ASP.NET Core MVC, Razor Pages, HTML5, CSS3, Bootstrap  
 🧰 Diğer: AutoMapper, FluentValidation, Dependency Injection  
-
-📁 Proje Yapısı
+<!-- 
+[📁 Proje Yapısı
 ----------------
 YummyApiProject/
 ├── 📦 Yummy.Api/           -> API katmanı  
 ├── 🖥️ Yummy.WebUI/         -> MVC kullanıcı arayüzü  
 ├── 📄 YummyApiProject.sln  -> Çözüm dosyası  
 ├── 📃 README.md  
-└── 📂 .gitignore  
-
+└── 📂 .gitignore  ](url)
+-->
 ⚙️ Kurulum Adımları
 ---------------------
 1️⃣ Bu repoyu klonlayın:  
