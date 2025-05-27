@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+    @await Component.InvokeAsync("_HeadComponentPartial")
+
+<body class="dark dark-sidebar theme-black">
+    <div class="loader"></div>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+
+            @await Component.InvokeAsync("_NavbarComponentPartial")
+
+            @await Component.InvokeAsync("_SidebarComponentPartial")
+
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-body">
+                        @RenderBody()
+                    </div>
+                </section>
+
+                @await Component.InvokeAsync("_SettingsSidebarComponentPartial")
+
+            </div>
+
+        </div>
+    </div>
+    <script src="/otika-bootstrap-admin-template/assets/js/app.min.js"></script>
+    <script src="/otika-bootstrap-admin-template/assets/js/scripts.js"></script>
+    <script src="/otika-bootstrap-admin-template/assets/js/custom.js"></script>
+</body>
+</html>

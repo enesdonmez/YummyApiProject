@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yummy.Api", "Yummy.Api\Yumm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yummy.WebUI", "Yummy.WebUI\Yummy.WebUI.csproj", "{BD13217C-9B28-4044-90F1-955D6C56E133}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yummy.AdminUI", "Yummy.AdminUI\Yummy.AdminUI.csproj", "{C7F20FC7-94FA-43D9-A9BA-958F3FC00101}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BD13217C-9B28-4044-90F1-955D6C56E133}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD13217C-9B28-4044-90F1-955D6C56E133}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD13217C-9B28-4044-90F1-955D6C56E133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7F20FC7-94FA-43D9-A9BA-958F3FC00101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F20FC7-94FA-43D9-A9BA-958F3FC00101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F20FC7-94FA-43D9-A9BA-958F3FC00101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F20FC7-94FA-43D9-A9BA-958F3FC00101}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
