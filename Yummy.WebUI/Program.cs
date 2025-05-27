@@ -7,7 +7,7 @@ namespace Yummy.WebUI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddHttpClient();
             var app = builder.Build();
 
