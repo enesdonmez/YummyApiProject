@@ -7,7 +7,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-
+        builder.Services.AddHttpClient();
         var app = builder.Build();
 
         if (!app.Environment.IsDevelopment())

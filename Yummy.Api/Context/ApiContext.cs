@@ -29,5 +29,6 @@ namespace Yummy.Api.Context
         public DbSet<Service> Services { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
     }
 }

@@ -59,5 +59,12 @@ namespace Yummy.Api.Controllers
             _context.SaveChanges();
             return Ok("Mesaj güncellendi");
         }
+
+        [HttpGet]
+        public IActionResult MessageListByIsReadFalse()
+        {
+            var value = _context.Messages.Where(x => x.IsRead == false).ToList();
+            return Ok(value);
+        }
     }
 }
