@@ -1,0 +1,30 @@
+﻿@using Yummy.AdminUI.Dtos.CategoryDtos
+@model CreateCategoryDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12 col-md-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Kategori Ekle</h4>
+            </div>
+            <form asp-action="Create" asp-controller="Category" method="post">
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="CategoryName">Kategori adı</label>
+                            <input type="text" class="form-control" id="CategoryName" name="CategoryName">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

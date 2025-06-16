@@ -48,7 +48,7 @@ namespace Yummy.Api.Controllers
             return Ok("Kategori silme işlemi başarılı");
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult GetCategory(int id)
         {
             var value = _context.Categories.Find(id)!;

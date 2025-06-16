@@ -1,0 +1,31 @@
+﻿@using Yummy.AdminUI.Dtos.CategoryDtos
+@model ResultCategoryDto
+@{
+    ViewData["Title"] = "Update Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12 col-md-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Kategori Güncelle</h4>
+            </div>
+            <form asp-action="UpdateCategory" asp-controller="Category" method="post">
+                <input type="hidden" asp-for="@Model.CategoryId" value="@Model.CategoryId" />
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="CategoryName">Kategori adı</label>
+                            <input type="text" class="form-control" id="CategoryName" name="CategoryName" value="@Model.CategoryName">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success">Güncelle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

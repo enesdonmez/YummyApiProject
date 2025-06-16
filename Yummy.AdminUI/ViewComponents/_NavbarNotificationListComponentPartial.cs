@@ -18,9 +18,9 @@ namespace Yummy.AdminUI.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            using (var client = _httpClientFactory.CreateClient())
+            using (var client = _httpClientFactory.CreateClient("YummyApi"))
             {
-                var response = await client.GetAsync($"{_configuration.GetSection("ApiUrl").Value}/Notifications");
+                var response = await client.GetAsync("Notifications");
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonData = await response.Content.ReadAsStringAsync();

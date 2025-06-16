@@ -1,3 +1,5 @@
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Yummy.AdminUI;
 
 public class Program
@@ -7,7 +9,11 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-        builder.Services.AddHttpClient();
+        builder.Services.AddHttpClient("YummyApi", client =>
+        {
+            client.BaseAddress = new Uri(builder.Configuration.GetSection("ApiUrl").Value);
+        });
+
         var app = builder.Build();
 
         if (!app.Environment.IsDevelopment())
